@@ -6,26 +6,34 @@ import { FaFacebookF } from "react-icons/fa";
 import { ImInstagram } from "react-icons/im";
 import { FaTwitter } from "react-icons/fa";
 import { IoMailOutline } from "react-icons/io5";
-import { useRouter, usePathname } from "next/navigation";
+import Button from "./ui/Button";
 import { useGetCategories } from "@/zustand/stores";
+import { usePathname, useRouter } from "next/navigation";
+// import Footer_img from "/public";
 
 export default function Footer() {
   const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
   const router = useRouter();
   const pathname = usePathname();
-  const { setCategory, categories, closeCategoryDropDown } = useGetCategories();
+  const {
+    categoryDropDown,
+    setCategory,
+    closeCategoryDropDown,
+    categories,
+    toggleCategoryDropDown,
+    setCategories,
+  } = useGetCategories();
 
-  useEffect(() => {
-    setCurrentYear(new Date().getFullYear());
-  }, []);
-
-  const handleCategoryClick = (category) => {
-    setCategory(category);
+  const gotoProducts = () => {
     if (pathname !== "/products") {
-      router.push("/products");
+      router.push(`/products`);
     }
-    closeCategoryDropDown();
+    return;
   };
+   
+useEffect(() => {
+  setCurrentYear(new Date().getFullYear());
+}, []);
 
   return (
     <footer>
@@ -75,18 +83,58 @@ export default function Footer() {
             <div className="flex mx-auto flex-wrap gap-10 pt-8 justify-between font-sans">
               <div className="flex gap-1 flex-col">
                 <h1 className="font-medium">Categories</h1>
-                <div className="mt-2 flex flex-col gap-2">
-                  {categories?.map((category) => (
-                    <button
-                      key={category.id}
-                      onClick={() => handleCategoryClick(category)}
-                      className="text-left hover:text-forest-green-200 transition-colors cursor-pointer flex items-center gap-3"
-                    >
-                      {category.icon}
-                      <span>{category.name}</span>
-                    </button>
-                  ))}
+
+                {categories?.map((c, i) => (
+                  <div
+                    key={i}
+                    onClick={() => {
+                      setCategory(c);
+                      gotoProducts();
+                      // toggleNavbar();
+                    }}
+                    className="place-self-start flex items-center justify-center gap-3 cursor-pointer"
+                  >
+                    <span>{c?.name}</span>
+                  </div>
+                ))}
+                {/* <div className="mt-2">
+                  <Link href="/product/clothing" className="cursor-pointer">
+                    Clothing
+                  </Link>
                 </div>
+                <div>
+                  <Link href="/product/kitchen" className="cursor-pointer">
+                    Kitchen Items
+                  </Link>
+                </div>
+                <div>
+                  <Link href="/product/personalcare" className="cursor-pointer">
+                    Personal Care
+                  </Link>
+                </div>
+                <div>
+                  <Link
+                    href="/product/officesupplies"
+                    className="cursor-pointer"
+                  >
+                    Office Supplies
+                  </Link>
+                </div>
+                <div>
+                  <Link href="/product/household" className="cursor-pointer">
+                    Household Items
+                  </Link>
+                </div>
+                <div>
+                  <Link href="/product/cosmetics" className="cursor-pointer">
+                    Beauty & Cosmetics
+                  </Link>
+                </div>
+                <div>
+                  <Link href="/product/travel" className="cursor-pointer">
+                    Outdoor & Travel
+                  </Link>
+                </div> */}
               </div>
 
               <div className="flex gap-1 flex-col">
