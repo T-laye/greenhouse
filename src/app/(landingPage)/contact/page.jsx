@@ -32,7 +32,7 @@ const ContactPage = () => {
 
       {/* Contact Images Section */}
       <h1 className="font-medium text-3xl">Welcome us on Social media</h1>
-      <div className="md:flex-row flex-col flex relative gap-[200px] md:gap-4 py-24">
+      <div className="md:flex-row flex-col flex relative gap-[100px] md:gap-4 py-24">
         <div className="flex gap-4 sm:gap-6">
           <div>
             <Image
@@ -76,15 +76,16 @@ const ContactPage = () => {
                 height={30}
               /> */}
               <div className="flex items-center justify-start gap-1">
-                <FaFacebook />
+                <FaFacebook className="text-blue-600" /> {/* Facebook blue */}
                 <span>@fysi</span>
               </div>
               <div className="flex items-center justify-start gap-1">
-                <SlSocialInstagram />
+                <SlSocialInstagram className="text-pink-500" />{" "}
+                {/* Instagram pink */}
                 <span>@fysi.com</span>
               </div>
               <div className="flex items-center justify-start gap-1">
-                <CiLinkedin />
+                <CiLinkedin className="text-blue-700" /> {/* LinkedIn blue */}
                 <span>@fysi.com</span>
               </div>
             </div>
