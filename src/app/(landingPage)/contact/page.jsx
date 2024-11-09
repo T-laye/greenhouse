@@ -31,76 +31,80 @@ const ContactPage = () => {
       </div>
 
       {/* Contact Images Section */}
-      <h1 className="font-medium text-3xl">
-        follow us on our Social platforms
-      </h1>
-      <div className="md:flex-row flex-col flex relative gap-[200px] md:gap-4 py-24">
-        <div className="flex gap-4 sm:gap-6">
-          <div>
-            <Image
-              width={350}
-              height={300}
-              quality={100}
-              priority={true}
-              src="/images/letterhead.png"
-              alt="contact"
-              className="rounded-lg"
-            />
+      {/* <h1 className="font-medium text-3xl">Welcome us on Social media</h1> */}
+      <div className="md:flex-row flex-col flex relative gap-[100px] md:gap-4 py-24">
+        <h1 className="font-medium text-3xl">
+          follow us on our Social platforms
+        </h1>
+        <div className="md:flex-row flex-col flex relative gap-[200px] md:gap-4 py-24">
+          <div className="flex gap-4 sm:gap-6">
+            <div>
+              <Image
+                width={350}
+                height={300}
+                quality={100}
+                priority={true}
+                src="/images/letterhead.png"
+                alt="contact"
+                className="rounded-lg"
+              />
+            </div>
+            <div className="translate-y-1/2">
+              <Image
+                priority={true}
+                width={350}
+                height={300}
+                quality={100}
+                src="/images/perfume.png"
+                alt="contact"
+                className="rounded-lg"
+              />
+            </div>
           </div>
-          <div className="translate-y-1/2">
-            <Image
-              priority={true}
-              width={350}
-              height={300}
-              quality={100}
-              src="/images/perfume.png"
-              alt="contact"
-              className="rounded-lg"
-            />
-          </div>
-        </div>
-        <div className="flex gap-4 sm:gap-6">
-          <div>
-            <Image
-              width={350}
-              height={300}
-              priority={true}
-              quality={100}
-              src="/images/bamboo.png"
-              alt="contact"
-              className="rounded-lg"
-            />
-            <div className="icons">
-              {/* <Image
+          <div className="flex gap-4 sm:gap-6">
+            <div>
+              <Image
+                width={350}
+                height={300}
+                priority={true}
+                quality={100}
+                src="/images/bamboo.png"
+                alt="contact"
+                className="rounded-lg"
+              />
+              <div className="icons">
+                {/* <Image
                 src="/images/facebook.png"
                 alt="facebook"
                 width={30}
                 height={30}
               /> */}
-              <div className="flex items-center justify-start gap-1">
-                <FaFacebook />
-                <span>@fysi</span>
-              </div>
-              <div className="flex items-center justify-start gap-1">
-                <SlSocialInstagram />
-                <span>@fysi.com</span>
-              </div>
-              <div className="flex items-center justify-start gap-1">
-                <CiLinkedin />
-                <span>@fysi.com</span>
+                <div className="flex items-center justify-start gap-1">
+                  <FaFacebook className="text-blue-600" /> {/* Facebook blue */}
+                  <span>@fysi</span>
+                </div>
+                <div className="flex items-center justify-start gap-1">
+                  <SlSocialInstagram className="text-pink-500" />{" "}
+                  {/* Instagram pink */}
+                  <span>@fysi.com</span>
+                </div>
+                <div className="flex items-center justify-start gap-1">
+                  <CiLinkedin className="text-blue-700" /> {/* LinkedIn blue */}
+                  <span>@fysi.com</span>
+                </div>
               </div>
             </div>
-          </div>
-          <div className="translate-y-1/2">
-            <Image
-              width={350}
-              height={300}
-              quality={100}
-              priority={true}
-              src="/images/lamp.png"
-              alt="contact"
-              className="rounded-lg"
-            />
+            <div className="translate-y-1/2">
+              <Image
+                width={350}
+                height={300}
+                quality={100}
+                priority={true}
+                src="/images/lamp.png"
+                alt="contact"
+                className="rounded-lg"
+              />
+            </div>
           </div>
         </div>
       </div>

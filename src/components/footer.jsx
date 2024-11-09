@@ -127,6 +127,10 @@ export default function Footer() {
                     onClick={() => {
                       setCategory(c);
                       gotoProducts();
+                      window.scrollTo({
+                        top: 0,
+                        behavior: "smooth", // Smooth scrolling effect
+                      });
                       // toggleNavbar();
                     }}
                     className="place-self-start flex items-center justify-center gap-3 cursor-pointer"
@@ -177,15 +181,19 @@ export default function Footer() {
               <div className="flex gap-1 flex-col">
                 <h1 className="font-medium text-base">Useful Links</h1>
                 <div className="mt-2">
-                  <Link href="/report" className="cursor-pointer">
+                  <Link href="/returns" className="cursor-pointer">
                     Returns and Refunds
                   </Link>
                 </div>
                 <div>
+<<<<<<< HEAD
                   <Link
                     href="#"
                     className="cursor-pointer"
                   >
+=======
+                  <Link href="/report" className="cursor-pointer">
+>>>>>>> a4a2d9595f446a266b9decfd0ffc9b2eee64fc1f
                     Report a Product
                   </Link>
                 </div>
