@@ -205,7 +205,7 @@ const router = useRouter()
             <Button
               css={`px-28 py-2
               bg-forest-green-800 whitespace-nowrap `}
-              fn={()=> router.push('/customer/thankYou')}
+              fn={()=> router.push('/thankYou')}
             >
               <span className=""> Pay {getTotal()}</span>
             </Button>
