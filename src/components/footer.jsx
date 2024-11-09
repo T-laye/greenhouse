@@ -6,19 +6,20 @@ import { FaFacebookF } from "react-icons/fa";
 import { ImInstagram } from "react-icons/im";
 import { FaTwitter } from "react-icons/fa";
 import { IoMailOutline } from "react-icons/io5";
+import { toast } from "react-hot-toast"; // Import toast
 import Button from "./ui/Button";
 import { useGetCategories } from "@/zustand/stores";
 import { usePathname, useRouter } from "next/navigation";
-// import Footer_img from "/public";
+import axios from "@/config/axios";
 
 export default function Footer() {
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
-  const [submitted, setSubmitted] = useState(false);
   const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
   const router = useRouter();
   const pathname = usePathname();
-  const handleSubmit = (e) => {
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
 
@@ -37,10 +38,20 @@ export default function Footer() {
       return;
     }
 
-    // Handle successful submission (e.g., send email to backend)
-    setSubmitted(true);
-    setEmail("");
+    try {
+      const response = await axios.post("/newsletter/", { email });
+      if (response.status === 200) {
+        toast.success("Subscribed successfully!"); // Success toast
+        setEmail("");
+      } else {
+        setError("Something went wrong. Please try again.");
+      }
+    } catch (error) {
+      toast.error("Unable to subscribe at this time. Please try again later."); // Error toast
+      console.error("Subscription error:", error);
+    }
   };
+
   const {
     categoryDropDown,
     setCategory,
@@ -90,17 +101,12 @@ export default function Footer() {
                   </button>
                 </div>
                 {error && <p className="text-red-500 mt-2 text-sm">{error}</p>}
-                {submitted && !error && (
-                  <p className="text-green-500 mt-2 text-sm">
-                    Thank you for subscribing!
-                  </p>
-                )}
               </form>
             </div>
           </div>
         </div>
       </section>
-
+      
       <div className="bg-forest-green-700">
         <div className="px-8">
           <div className="grid grid-cols-1 lg:grid-cols-[0.7fr,3.3fr] gap-10 text-white container mx-auto px-4 py-4">

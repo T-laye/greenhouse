@@ -43,15 +43,15 @@ export default function Login() {
       });
       if (res) {
         setLoading(false);
-        s;
+
         // const accessToken = res.data?.token.access;
         // const user = res.data?.user;
         // sessionStorage.setItem("accessToken", accessToken);
         // sessionStorage.setItem("user", JSON.stringify(user));
         console.log(res);
 
-        toast.success("Otp sent successfully!", { id: toastId });
-        // router.push(route);
+        toast.success(res.data.message, { id: toastId });
+        router.push("/resetpassword");
       }
     } catch (error) {
       setLoading(false);
