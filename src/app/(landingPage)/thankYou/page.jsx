@@ -1,9 +1,11 @@
 'use client'
 import Button from "@/components/ui/Button";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import React from "react";
 
 const Page = () => {
+  const router = useRouter();
   return (
     <div className="mt-56 sm:mt-52 flex justifycenter gap-2 flex-col items-center bged-300">
       <div className="mt-2 w-40">
