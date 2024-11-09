@@ -11,14 +11,15 @@ import axios from "@/config/axios";
 import useAxiosAuth from "@/lib/hooks/useAxiosAuth";
 import { useCart } from "@/zustand/stores";
 import Button from "@/components/ui/Button";
+import { useRouter } from "next/navigation";
 
 export default function Page() {
   const axiosAuth = useAxiosAuth();
   const [loading, setLoading] = useState(false);
-
+const router = useRouter()
   const { cartItems, setCartItems } = useCart();
 
-  console.log(cartItems);
+  // console.log(cartItems);
 
   const getTotal = () => {
     const total = cartItems.reduce((sum, item) => sum + item.subtotal, 0);
@@ -204,6 +205,7 @@ export default function Page() {
             <Button
               css={`px-28 py-2
               bg-forest-green-800 whitespace-nowrap `}
+              fn={()=> router.push('/customer/thankYou')}
             >
               <span className=""> Pay {getTotal()}</span>
             </Button>
