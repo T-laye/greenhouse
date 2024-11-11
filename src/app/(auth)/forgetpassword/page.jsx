@@ -50,8 +50,8 @@ export default function Login() {
         // sessionStorage.setItem("user", JSON.stringify(user));
         console.log(res);
 
-        toast.success("Otp sent successfully!", { id: toastId });
-        // router.push(route);
+        toast.success(res.data.message, { id: toastId });
+        router.push("/resetpassword");
       }
     } catch (error) {
       setLoading(false);

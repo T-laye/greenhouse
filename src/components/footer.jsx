@@ -6,20 +6,21 @@ import { FaFacebookF } from "react-icons/fa";
 import { ImInstagram } from "react-icons/im";
 import { FaTwitter } from "react-icons/fa";
 import { IoMailOutline } from "react-icons/io5";
+import { toast } from "react-hot-toast"; // Import toast
 import Button from "./ui/Button";
 import { useGetCategories } from "@/zustand/stores";
 import BackToTop from "./ui/backtotop";
 import { usePathname, useRouter } from "next/navigation";
-// import Footer_img from "/public";
+import axios from "@/config/axios";
 
 export default function Footer() {
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
-  const [submitted, setSubmitted] = useState(false);
   const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
   const router = useRouter();
   const pathname = usePathname();
-  const handleSubmit = (e) => {
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
 
@@ -38,10 +39,20 @@ export default function Footer() {
       return;
     }
 
-    // Handle successful submission (e.g., send email to backend)
-    setSubmitted(true);
-    setEmail("");
+    try {
+      const response = await axios.post("/newsletter/", { email });
+      if (response.status === 200) {
+        toast.success("Subscribed successfully!"); // Success toast
+        setEmail("");
+      } else {
+        setError("Something went wrong. Please try again.");
+      }
+    } catch (error) {
+      toast.error("Unable to subscribe at this time. Please try again later."); // Error toast
+      console.error("Subscription error:", error);
+    }
   };
+
   const {
     categoryDropDown,
     setCategory,
@@ -91,11 +102,6 @@ export default function Footer() {
                   </button>
                 </div>
                 {error && <p className="text-red-500 mt-2 text-sm">{error}</p>}
-                {submitted && !error && (
-                  <p className="text-green-500 mt-2 text-sm">
-                    Thank you for subscribing!
-                  </p>
-                )}
               </form>
             </div>
           </div>
@@ -186,14 +192,7 @@ export default function Footer() {
                   </Link>
                 </div>
                 <div>
-<<<<<<< HEAD
-                  <Link
-                    href="#"
-                    className="cursor-pointer"
-                  >
-=======
                   <Link href="/report" className="cursor-pointer">
->>>>>>> a4a2d9595f446a266b9decfd0ffc9b2eee64fc1f
                     Report a Product
                   </Link>
                 </div>
