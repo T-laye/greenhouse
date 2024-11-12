@@ -17,9 +17,9 @@ export default function Layout({ children }) {
   }, [images.length]);
 
   return (
-    <section className="h-screen flex items-stretch">
-      <div className="grid grid-cols-1 md:grid-cols-2 w-full ">
-        <div className="relative hidden md:block">
+    <section className="">
+      <div className="min-h-screen grid grid-cols-1 md:grid-cols-2 w-full">
+        <div className="relative hidden md:block lg:block">
           {images.map((img, index) => (
             <Image
               key={img}
@@ -34,7 +34,15 @@ export default function Layout({ children }) {
           ))}
           <div className="absolute inset-0 bg-gradient-to-b from-forest-green-900/30 to-forest-green-900/50"></div>
         </div>
+        {/* <div className="bg-pink-400">
+          <div className="hidden md:block lg:block">
+            <h1 className="text-6xl">Hello</h1>
+          </div>
+        </div> */}
         <Suspense>{children}</Suspense>
+        {/* <div className="bg-blue-500">
+          <h1>Hello Boss!</h1>
+        </div> */}
       </div>
     </section>
   );
