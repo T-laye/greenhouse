@@ -38,7 +38,7 @@ export default function Login() {
 
     // console.log(data.target);
     try {
-      const res = await axios.post("/users/send-otp/", {
+      const res = await axios.post("/users/resetrequest/", {
         email,
       });
       if (res) {

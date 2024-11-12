@@ -26,7 +26,7 @@ export default function FavoriteBtn(product) {
   };
 
   return (
-    <div className="absolute top-5 right-7 sm:top-5 sm:right-3 md:top-6 md:right-8 lg:top-5 lg:right-5">
+    <div className="absolute top-[5%] right-[7%] ">
       <button
         onClick={addToFavorite}
         className="bg-white rounded-full p-1.5 sm:p-2 md:p-2.5 lg:p-3 shadow-sm hover:shadow-md transition-shadow duration-200"

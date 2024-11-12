@@ -12,6 +12,7 @@ const Page = () => {
   const email = searchParams.get("email");
 
   // Timer state
+  const [loading, setLoading] = useState(false);
   const [counter, setCounter] = useState(300); // 5 minutes in seconds
   const [isTimerActive, setIsTimerActive] = useState(true);
 
@@ -26,7 +27,7 @@ const Page = () => {
     return () => clearTimeout(timer);
   }, [counter, isTimerActive]);
 
- const handleResendOtp = async () => {
+  const handleResendOtp = async () => {
     setLoading(true);
     const toastId = toast.loading("Resending OTP...");
 
@@ -34,15 +35,15 @@ const Page = () => {
       const res = await axios.post("/users/send-otp/", {
         email,
       });
-      
+
       if (res) {
         toast.success("OTP resent successfully", { id: toastId });
         setCounter(300); // Reset timer to 5 minutes
         setIsTimerActive(true); // Restart the timer
       }
     } catch (error) {
-      toast.error(error.response?.data?.error || "Failed to resend OTP", { 
-        id: toastId 
+      toast.error(error.response?.data?.error || "Failed to resend OTP", {
+        id: toastId,
       });
     } finally {
       setLoading(false);

@@ -75,7 +75,7 @@ const OtpInput = () => {
     try {
       const otpString = otp.join("");
 
-      const res = await axios.post("/users/verify-otp/", {
+      const res = await axios.post("/users/resetrequest/", {
         email,
         otp: otpString,
         new_password: newPassword,
