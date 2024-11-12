@@ -90,10 +90,10 @@ label {
 .text_box-sm {
   border: 1px solid #d0d5dd;
 }
-.hidden {
+/* .hidden {
   visibility: hidden;
   opacity: 0;
-}
+} */
 
 .visible {
   visibility: visible;
