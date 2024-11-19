@@ -43,7 +43,7 @@ export default function Page() {
         }
       } catch (error) {
         console.log(error.message);
-          toast.error(error.response.data.error);
+        toast.error(error.response.data.error);
       } finally {
         setLoading(false);
       }
@@ -56,7 +56,7 @@ export default function Page() {
   });
 
   return (
-    <div className="flex flex-col items-center justify-center px-8 md:px-16">
+    <div className="flex flex-col  items-center justify-center px-8 md:px-16">
       <Toaster
         position="top-center"
         gutter={12}

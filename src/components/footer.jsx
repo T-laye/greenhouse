@@ -9,6 +9,7 @@ import { IoMailOutline } from "react-icons/io5";
 import { toast } from "react-hot-toast"; // Import toast
 import Button from "./ui/Button";
 import { useGetCategories } from "@/zustand/stores";
+import BackToTop from "./ui/backtotop";
 import { usePathname, useRouter } from "next/navigation";
 import axios from "@/config/axios";
 
@@ -106,7 +107,7 @@ export default function Footer() {
           </div>
         </div>
       </section>
-      
+
       <div className="bg-forest-green-700">
         <div className="px-8">
           <div className="grid grid-cols-1 lg:grid-cols-[0.7fr,3.3fr] gap-10 text-white container mx-auto px-4 py-4">
@@ -281,6 +282,12 @@ export default function Footer() {
           </div>
         </div>
       </div>
+
+      {/* Include BackToTop component except on specific pages */}
+      {pathname !== "/login" &&
+        pathname !== "/signup" &&
+        pathname !== "/forgot-password" &&
+        pathname !== "/otp" && <BackToTop />}
     </footer>
   );
 }
