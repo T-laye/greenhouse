@@ -32,7 +32,7 @@ const ContactPage = () => {
 
       {/* Contact Images Section */}
       <h1 className="font-medium text-3xl">Follow us on our Social Platforms</h1>
-      <div className="md:flex-row flex-col flex relative gap-[100px] md:gap-4 py-24">
+      <div className="md:flex-row flex-col flex relative gap-[100px] md:gap-4 py-10 md:py-24 lg:py-30">
         <div className="flex gap-4 sm:gap-6">
           <div>
             <Image
