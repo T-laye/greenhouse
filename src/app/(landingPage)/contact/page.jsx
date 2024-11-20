@@ -76,6 +76,45 @@ const ContactPage = () => {
               />
               <div className="icons">
                 {/* <Image
+      <h1 className="font-medium text-3xl">Follow us on our Social Platforms</h1>
+      <div className="md:flex-row flex-col flex relative gap-[100px] md:gap-4 py-10 md:py-24 lg:py-30">
+        <div className="flex gap-4 sm:gap-6">
+          <div>
+            <Image
+              width={350}
+              height={300}
+              quality={100}
+              priority={true}
+              src="/images/letterhead.png"
+              alt="contact"
+              className="rounded-lg"
+            />
+          </div>
+          <div className="translate-y-1/2">
+            <Image
+              priority={true}
+              width={350}
+              height={300}
+              quality={100}
+              src="/images/perfume.png"
+              alt="contact"
+              className="rounded-lg"
+            />
+          </div>
+        </div>
+        <div className="flex gap-4 sm:gap-6">
+          <div>
+            <Image
+              width={350}
+              height={300}
+              priority={true}
+              quality={100}
+              src="/images/bamboo.png"
+              alt="contact"
+              className="rounded-lg"
+            />
+            <div className="icons">
+              {/* <Image
                 src="/images/facebook.png"
                 alt="facebook"
                 width={30}
