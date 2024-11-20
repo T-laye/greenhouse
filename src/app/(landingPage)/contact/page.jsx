@@ -34,11 +34,11 @@ const ContactPage = () => {
       <h1 className="font-medium text-3xl">
         Follow us on our Social Platforms
       </h1>
-      <div className="md:flex-row flex-col flex relative gap-[100px] md:gap-4 py-24">
-        <h1 className="font-medium text-3xl">
-          follow us on our Social platforms
-        </h1>
-        <div className="md:flex-row flex-col flex relative gap-[200px] md:gap-4 py-24">
+      <div className="md:flex-row flex-col flex relative gap-[100px] md:gap-4 py-2">
+        {/* <h1 className="font-medium text-3xl">
+          Follow us on our Social platforms
+        </h1> */}
+        <div className="md:flex-row flex-col flex relative gap-[100px] md:gap-4 py-2 md:py-10 lg:py-24">
           <div className="flex gap-4 sm:gap-6">
             <div>
               <Image
