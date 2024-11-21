@@ -30,6 +30,8 @@ export default function Page() {
   const params = useParams();
   const productId = params?.productId;
   const { categories } = useGetCategories();
+  const [ecoCertOpen, setEcoCertOpen] = useState(false);
+  const [deliveryInfoOpen, setDeliveryInfoOpen] = useState(false);
 
   const totalPrice =
     parseInt(product?.pricing?.base_price) * count ??
@@ -215,12 +217,42 @@ export default function Page() {
 
                 <div className="flex items-center justify-between pt-4 pb-8 border-t-2">
                   <div>Eco Certification</div>
-                  <IoIosArrowDown size={22} />
+                  <IoIosArrowDown
+                    size={22}
+                    className={`cursor-pointer ${
+                      ecoCertOpen ? "rotate-180" : ""
+                    } transition-transform`}
+                    onClick={() => setEcoCertOpen(!ecoCertOpen)}
+                  />
                 </div>
+                {ecoCertOpen && (
+                  <div className="bg-gray-100 p-4">
+                    <p>
+                      This product is certified eco-friendly and meets
+                      sustainability standards.
+                    </p>
+                  </div>
+                )}
+
+                {/* Delivery Information Section */}
                 <div className="flex items-center justify-between py-4 border-t-2">
                   <div>Delivery Information</div>
-                  <IoIosArrowDown size={22} />
+                  <IoIosArrowDown
+                    size={22}
+                    className={`cursor-pointer ${
+                      deliveryInfoOpen ? "rotate-180" : ""
+                    } transition-transform`}
+                    onClick={() => setDeliveryInfoOpen(!deliveryInfoOpen)}
+                  />
                 </div>
+                {deliveryInfoOpen && (
+                  <div className="bg-gray-100 p-4">
+                    <p>
+                      Delivery within 3-5 business days. Free shipping for
+                      orders above ₦50,000.
+                    </p>
+                  </div>
+                )}
               </div>
             </div>
           </section>
